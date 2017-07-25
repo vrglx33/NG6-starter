@@ -3,11 +3,18 @@ import uiRouter from 'angular-ui-router';
 import contactComponent from './contact.component';
 
 const contactModule = angular.module('contact', [
-  uiRouter,
-])
+        uiRouter,
+    ])
+    .config(($stateProvider) => {
+        'ngInject';
+        $stateProvider
+            .state('contact', {
+                url: '/contact',
+                component: 'contact',
+            });
+    })
+    .component('contact', contactComponent)
 
-  .component('contact', contactComponent)
-
-  .name;
+.name;
 
 export default contactModule;

@@ -3,21 +3,21 @@ import uiRouter from 'angular-ui-router';
 import aboutComponent from './about.component';
 
 const aboutModule = angular.module('about', [
-  uiRouter,
+    uiRouter,
 ])
 
-  .config(($stateProvider) => {
+.config(($stateProvider) => {
     'ngInject';
 
     $stateProvider
-      .state('about', {
-        url: '/about',
-        component: 'about',
-      });
-  })
+        .state('about', {
+            url: '/about',
+            component: 'about',
+        });
+})
 
-  .component('about', aboutComponent)
+.component('about', aboutComponent)
 
-  .name;
+.name;
 
 export default aboutModule;

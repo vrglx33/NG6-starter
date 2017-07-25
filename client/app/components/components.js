@@ -1,12 +1,14 @@
 import angular from 'angular';
 import Home from './home/home';
 import About from './about/about';
+import Contact from './contact/contact';
 
 const componentModule = angular.module('app.components', [
-  Home,
-  About,
+    Home,
+    About,
+    Contact
 ])
 
-  .name;
+.name;
 
 export default componentModule;
