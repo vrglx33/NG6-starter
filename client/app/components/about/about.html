@@ -1,4 +1,6 @@
 <h1 class="title">{{ $ctrl.name }}</h1>
 <section>
-  Found in {{ $ctrl.name }}.html
+    <div ng-if="$ctrl.users" ng-repeat="user in $ctrl.users[0]">
+        <p>{{ user.name }}</p>
+    </div>
 </section>
