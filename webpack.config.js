@@ -1,22 +1,22 @@
-var path    = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
   entry: {
     app: [
       'babel-polyfill',
-      path.join(__dirname, 'client', 'app/app.js')
-    ]
+      path.join(__dirname, 'client', 'app/app.js'),
+    ],
   },
   module: {
     loaders: [
-       { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate-loader!babel-loader' },
-       { test: /\.html$/, loader: 'raw-loader' },
-       { test: /\.(scss|sass)$/, loader: 'style-loader!css-loader!sass-loader' },
-       { test: /\.css$/, loader: 'style-loader!css-loader' }
-    ]
+      { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate-loader!babel-loader' },
+      { test: /\.html$/, loader: 'raw-loader' },
+      { test: /\.(scss|sass)$/, loader: 'style-loader!css-loader!sass-loader' },
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
+    ],
   },
   plugins: [
     // Injects bundles in your index.html instead of wiring all manually.
@@ -26,14 +26,15 @@ module.exports = {
       template: 'client/index.html',
       inject: 'body',
       hash: true,
-      chunks: ['vendor', 'app']
+      chunks: ['vendor', 'app'],
     }),
 
     // Automatically move all modules defined outside of application directory to vendor bundle.
-    // If you are using more complicated project structure, consider to specify common chunks manually.
+    // If you are using more complicated project structure,
+    // consider to specify common chunks manually.
     new webpack.optimize.CommonsChunkPlugin({
-      name: "vendor",
-      minChunks: module => /node_modules/.test(module.resource)
-    })
-  ]
+      name: 'vendor',
+      minChunks: module => /node_modules/.test(module.resource),
+    }),
+  ],
 };

@@ -1,4 +1,4 @@
-const webpackConfig  = require('./webpack.config');
+const webpackConfig = require('./webpack.config');
 
 module.exports = function (config) {
   config.set({
@@ -7,7 +7,7 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['jasmine'],
 
     // list of files/patterns to load in the browser
     files: [{ pattern: 'spec.bundle.js', watched: false }],
@@ -16,12 +16,11 @@ module.exports = function (config) {
     exclude: [],
 
     plugins: [
-      require("karma-chai"),
-      require("karma-chrome-launcher"),
-      require("karma-mocha"),
-      require("karma-mocha-reporter"),
-      require("karma-sourcemap-loader"),
-      require("karma-webpack")
+      require('karma-chrome-launcher'),
+      require('karma-jasmine'),
+      require('karma-sourcemap-loader'),
+      require('karma-spec-reporter'),
+      require('karma-webpack'),
     ],
 
     // preprocess matching files before serving them to the browser
@@ -30,15 +29,15 @@ module.exports = function (config) {
 
     webpack: {
       devtool: 'inline-source-map',
-      module: webpackConfig.module
+      module: webpackConfig.module,
     },
 
     webpackServer: {
-      noInfo: true // prevent console spamming when running in Karma!
+      noInfo: true, // prevent console spamming when running in Karma!
     },
 
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['mocha'],
+    reporters: ['spec'],
 
     // web server port
     port: 9876,
@@ -47,7 +46,8 @@ module.exports = function (config) {
     colors: true,
 
     // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    // possible values:
+    // config.LOG_DISABLE, config.LOG_ERROR, config.LOG_WARN, config.LOG_INFO, config.LOG_DEBUG
     logLevel: config.LOG_INFO,
 
     // toggle whether to watch files and rerun tests upon incurring changes
@@ -58,6 +58,6 @@ module.exports = function (config) {
     browsers: ['Chrome'],
 
     // if true, Karma runs tests once and exits
-    singleRun: true
+    singleRun: true,
   });
 };
