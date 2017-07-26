@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     devtool: 'source-map',
@@ -16,13 +17,6 @@ module.exports = {
             { test: /\.html$/, loader: 'raw-loader' },
             { test: /\.(scss|sass)$/, loader: 'style-loader!css-loader!sass-loader' },
             { test: /\.css$/, loader: 'style-loader!css-loader' },
-            {
-                test: /\.(jpe?g|png|gif|svg)$/i,
-                loaders: [
-                    'file?hash=sha512&digest=hex&name=assets/img/[name].[ext]',
-                    'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
-                ]
-            }
         ],
     },
     plugins: [
@@ -35,6 +29,10 @@ module.exports = {
             hash: true,
             chunks: ['vendor', 'app'],
         }),
+        new CopyWebpackPlugin([
+            // {output}/file.txt
+            { from: 'client/app/assets', to: 'assets' }
+        ]),
 
         // Automatically move all modules defined outside of application directory to vendor bundle.
         // If you are using more complicated project structure,
