@@ -1,20 +1,25 @@
 @import '../common';
-
 .navbar {
-  background-color: $primaryColor;
-  padding: 0.5rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    .nav-links,
+    .logo {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        &:hover {
+            background-color: #111;
+        }
+    }
+}
 
-  .nav-links,
-  .logo {
-    display: inline-block;
-  }
-
-  .logo {
+a {
     color: $lightTextColor;
-    margin-right: 50%;
-  }
-
-  .nav-links {
-    color: $lightTextColor;
-  }
+    text-decoration: none;
+    font-size: 15px;
 }

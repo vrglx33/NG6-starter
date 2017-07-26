@@ -1,5 +1,5 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
+import uiRouter from '@uirouter/angularjs';
 import contactComponent from './contact.component';
 
 const contactModule = angular.module('contact', [

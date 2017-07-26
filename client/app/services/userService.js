@@ -6,10 +6,7 @@ export default class userService {
         this.$http = $http;
     }
     getData = () => {
-        var fetch = this.$http({
-            method: "GET",
-            url: `http://localhost:5000/data`
-        });
+        var fetch = this.$http.get(`http://localhost:5000/data`);
         return fetch;
     }
 }

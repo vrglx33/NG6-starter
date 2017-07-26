@@ -7,6 +7,4 @@ export default angular
     .service({
         userService
     })
-
-// userService.$inject = ['$scope', '$http'];
 userService.$inject = ["$http"];

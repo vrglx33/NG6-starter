@@ -1,4 +1,29 @@
-<div>
-    <h1>{{ $ctrl.name }}</h1>
-    kakakakakakakaks
+<div class="cont-contactBtn">
+    <div class="cont-flip">
+        <div class="front">
+            <a href="#" ng-click="$ctrl.flipForm('show')" class="btn btn-white flip">Contact form</a>
+        </div>
+        <div class="back">
+            <a href="#" ng-click="$ctrl.flipForm('remove')" class="flip close"></a>
+            <form class="contact-form" ng-submit="$ctrl.sendForm(this)">
+                <input name="name" ng-model="name" class="gutter" type="text" placeholder="Name">
+                <input type="text" placeholder="Company" ng-model="company">
+                <input ng-model="phone" class="gutter" type="text" placeholder="Telephone">
+                <input type="text" placeholder="Email" ng-model="mail">
+                <textarea name="" id="" ng-model="message" placeholder="Leave a message"></textarea>
+                <input type="submit" value="Send">
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<div class="inline-card" ng-repeat=" (key,contact) in $ctrl.$localStorage.data">
+    <h1 class="card-title">contact # {{ key }}</h1>
+    <div class="container">
+        <p>Your Name:{{ contact.name }}</p>
+        <p>Your Mail:{{ contact.mail }}</p>
+        <p>Your Company{{ contact.company }}</p>
+        <p>Your phone {{ contact.phone }}</p>
+    </div>
 </div>

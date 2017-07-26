@@ -1,13 +1,13 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
+import uiRouter from '@uirouter/angularjs';
 import navbarComponent from './navbar.component';
 
 const navbarModule = angular.module('navbar', [
-  uiRouter,
+    uiRouter,
 ])
 
-  .component('navbar', navbarComponent)
+.component('navbar', navbarComponent)
 
-  .name;
+.name;
 
 export default navbarModule;
