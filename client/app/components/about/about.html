@@ -1,9 +1,11 @@
 <h1 class="title">{{ $ctrl.name }}</h1>
 <section>
     <div class="inline-card" ng-if="$ctrl.users" ng-repeat="(key,user) in $ctrl.users[0]">
-        <h1> User # {{ key }} </h1>
-        <p>Id: {{ user.id }}</p>
-        <p>Name: {{ user.name }}</p>
-        <p>Mail: {{ user.email }}</p>
+        <h1 class="card-title"> User # {{ key }} </h1>
+        <div class="container">
+            <p>Id: {{ user.id }}</p>
+            <p>Name: {{ user.name }}</p>
+            <p>Mail: {{ user.email }}</p>
+        </div>
     </div>
 </section>
